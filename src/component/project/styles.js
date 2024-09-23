@@ -224,6 +224,99 @@ const styles = StyleSheet.create({
         width: '100%',
         alignSelf: 'center'
     },
+
+
+    mapFlexContainter: {
+        margin: 5
+    },
+    mapFlexContainter2: {
+        width: 100,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: colors.lightgray,
+        borderRadius: 20,
+        alignItems: 'center',
+        padding: 10
+    },
+    mapFlexContainter3: {
+        width: 100,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: colors.lightgray,
+        borderRadius: 20,
+        alignItems: 'center',
+        padding: 10
+    },
+    mapFlexContainter4: {
+        width: 150,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: colors.lightgray,
+        borderRadius: 20,
+        alignItems: 'center',
+        padding: 10,
+        margin: 10
+    },
+    mapFlexContainterText2: {
+        fontSize: 12,
+        color: colors.black,
+        margin: 5,
+        textAlign: 'center',
+        width: '60%'
+    },
+    mapFlexContainterText3: {
+        fontSize: 12,
+        color: colors.black,
+        margin: 5,
+        textAlign: 'center',
+        width: '50%'
+    },
+
+    NoSearchfoundText: {
+      fontSize:14,
+      color:colors.black,
+      fontWeight:'500',
+    },
+    headingText: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: colors.black,
+        width:'90%',
+        alignSelf:'center'        
+    },
+    taskTypeText: {
+        fontSize: 14,
+        fontWeight: '700',
+        color: colors.black,
+        width:'90%',
+        marginTop:10,
+        alignSelf:'center'        
+    },
+    assignedUserText: {
+        fontSize: 14,
+        fontWeight: '700',
+        color: colors.black,
+        width:'90%',
+        marginBottom:10,
+        alignSelf:'center'        
+    },
+    taskTypeFlexContainer: {
+        width: '70%',
+        paddingBottom: 10,
+        paddingTop: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    primarycontainer: {
+        backgroundColor: colors.primary,
+        width: '100%',
+        flexDirection: "row",
+        alignSelf: 'center',
+        height: 45,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 })
 
 export { styles }

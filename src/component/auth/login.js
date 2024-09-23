@@ -72,7 +72,9 @@ const Login = ({ navigation }) => {
 
     const onSubmit = () => {
         // if (isValid()) {
-        navigation.navigate("MainHeader");
+        navigation.navigate("Auth",{
+            screen:"Home"
+        });
         // } else {
         //     // Alert.alert("Validation Error", "Please correct the highlighted errors.");
         // }
@@ -89,6 +91,7 @@ const Login = ({ navigation }) => {
             keyboardVerticalOffset={Platform.OS === 'ios' ? 2 : 0}
         >
             <Image
+                style={{width:'100%'}}
                 source={require('../assets/images/bluebg.jpg')}
             />
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}

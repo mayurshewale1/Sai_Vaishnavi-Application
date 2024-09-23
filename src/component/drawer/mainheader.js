@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
 import { styles } from './styles';
-import colors from '../constant/colors';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Drawer from './drawer';
+import { useTab } from '../context/tabcontext';
+import colors from '../constant/colors';
 
-const MainHeader = (props) => {
+const MainHeader = ({ navigation, tab }) => {
+  const { activeTab, setActiveTab } = useTab(); // Use the context
+
   const [show, setShow] = useState(false);
-  const [activeTab, setActiveTab] = useState(1); // Store the active tab in the parent
 
   // Handle tab selection
   const getTab = (tabId, tabName) => {
     setShow(false); // Close the modal
-    setActiveTab(tabId); // Set the active tab in the parent
-    // props.setTab(tabId, tabName); // If you want to handle further logic
+    setActiveTab(tabId); // Set the active tab using the context
   };
-
+  
   return (
     <View>
       {/* Drawer Modal */}
@@ -31,8 +32,9 @@ const MainHeader = (props) => {
         <View style={styles.modal}>
           <Drawer
             func={getTab}
-            activeTab={activeTab}  // Pass activeTab as a prop
+            activeTab={activeTab}  // Pass activeTab as a prop from context
             onClose={() => setShow(false)}
+            navigation={navigation}
           />
         </View>
       </Modal>
@@ -41,35 +43,19 @@ const MainHeader = (props) => {
       <View style={styles.headerContainer}>
         {/* Menu Icon */}
         <TouchableOpacity onPress={() => setShow(!show)}>
-          <Ionicons
-            name="menu"
-            color={colors.white}
-            size={30}
-          />
+          <Ionicons name="menu" size={30} color={colors.white} />
         </TouchableOpacity>
 
-        {/* Notification and Profile Icons */}
+        {/* Other Icons */}
         <View style={styles.headerContainer2}>
           <TouchableOpacity>
-            <Ionicons
-              name="search"
-              color={colors.white}
-              size={20}
-            />
+            <Ionicons name="search" size={20} color={colors.white}/>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Ionicons
-              name="notifications-outline"
-              color={colors.white}
-              size={20}
-            />
+            <Ionicons name="notifications-outline" size={20} color={colors.white}/>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.profileContainer}>
-            <Image
-              width={25}
-              height={25}
-              source={require('../assets/images/profile.png')}
-            />
+          <TouchableOpacity>
+            <Image source={require('../assets/images/profile.png')} />
           </TouchableOpacity>
         </View>
       </View>

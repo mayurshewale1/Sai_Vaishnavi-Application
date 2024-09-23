@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, ScrollView, Image, Alert } from 'react-native';
 import { styles } from './styles';
 import Entypo from 'react-native-vector-icons/Entypo';
 import colors from '../constant/colors';
@@ -19,12 +19,36 @@ import Reports from '../assets/svg/reports.svg';
 import ReportsBlack from '../assets/svg/reportsblack.svg';
 import Logout from '../assets/svg/logout.svg';
 import LogoutBlack from '../assets/svg/logoutblack.svg';
+import { useTab } from '../context/tabcontext';
 
 
 const Drawer = (props) => {
-    // Function to handle tab click
+    const { activeTab, setActiveTab } = useTab(); // Use the context
+
     const handleTabClick = (tabId, tabName) => {
-        props.func(tabId, tabName); // Pass tab change to parent
+        setActiveTab(tabId); // Update the active tab globally
+        if (tabName === 'CreateProject') {
+            props.navigation.navigate('Auth', { screen: 'Home' });
+        }
+        if (tabName === 'Tasks') {
+            props.navigation.navigate('Auth', { screen: 'Home' });
+        }
+        if (tabName === 'Payments') {
+            props.navigation.navigate('Auth', { screen: 'Home' });
+        }
+        if (tabName === 'Resource magnt') {
+            props.navigation.navigate('Auth', { screen: 'Home' });
+        }
+        if (tabName === 'Users') {
+            props.navigation.navigate('Auth', { screen: 'Home' });
+        }
+        if (tabName === 'Calender') {
+            props.navigation.navigate('Auth', { screen: 'Home' });
+        }
+        if (tabName === 'Reports') {
+            props.navigation.navigate('Auth', { screen: 'Home' });
+        }
+        props.onClose();
     };
 
     return (
@@ -49,11 +73,11 @@ const Drawer = (props) => {
             <ScrollView style={{ width: '95%', alignSelf: 'center', marginTop: 30 }}>
                 {/* Dashboard */}
                 <TouchableOpacity
-                    style={props.activeTab === 1 ? styles.activeMenuItemStyle : styles.menuItemStyle}
+                    style={activeTab === 1 ? styles.activeMenuItemStyle : styles.menuItemStyle}
                     onPress={() => handleTabClick(1, 'CreateProject')}
                 >
                     {
-                        props.activeTab === 1 ?
+                        activeTab === 1 ?
                             <ProjectBlack
                                 width="25"
                                 height="25"
@@ -65,7 +89,7 @@ const Drawer = (props) => {
                                 style={styles.img}
                             />
                     }
-                    <Text style={props.activeTab === 1 ? styles.activeMenuItemTextStyle : styles.menuItemTextStyle}>
+                    <Text style={activeTab === 1 ? styles.activeMenuItemTextStyle : styles.menuItemTextStyle}>
                         Projects
                     </Text>
                 </TouchableOpacity>
@@ -140,6 +164,7 @@ const Drawer = (props) => {
                         Resource magnt
                     </Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity
                     style={props.activeTab === 5 ? styles.activeMenuItemStyle : styles.menuItemStyle}
                     onPress={() => handleTabClick(5, 'Users')}
@@ -186,6 +211,7 @@ const Drawer = (props) => {
                         Calender
                     </Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity
                     style={props.activeTab === 7 ? styles.activeMenuItemStyle : styles.menuItemStyle}
                     onPress={() => handleTabClick(7, 'Reports')}
@@ -234,6 +260,7 @@ const Drawer = (props) => {
                     </Text>
                 </TouchableOpacity>
             </ScrollView>
+
         </View>
     );
 };

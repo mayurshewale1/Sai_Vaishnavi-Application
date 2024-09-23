@@ -4,7 +4,7 @@ import moment from 'moment';
 import DatePicker from 'react-native-date-picker';
 import { styles } from './styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import colors from './colors';
+import colors from '../constant/colors';
 // import Calender from '../../assets/svg/calender.svg';
 
 const DobInput = props => {

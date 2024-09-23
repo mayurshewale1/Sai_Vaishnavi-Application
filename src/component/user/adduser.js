@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Image, KeyboardAvoidingView, Platform, ScrollView, Text, View } from 'react-native';
-import { styles } from './style';
 import Textinput from '../input/textinput';
 import PasswordInput from '../input/passwordinput';
 import PrimaryButton from '../button/primarybutton';
 import colors from '../constant/colors';
+import { styles } from './styles';
+import DropDown from '../input/dropdown';
+import MainHeader from '../drawer/mainheader';
+import { useTab } from '../context/tabcontext';
 
-const Registration = ({ navigation }) => {
+const AddUser = ({ navigation }) => {
 
+    const { activeTab } = useTab();
     const [registrationCredentials, setRegistrationCredentials] = useState({
         firstName: "",
         lastName: "",
+        email: "",
         phonenumber: "",
         password: "",
         cpassword: "",
+        username: "",
+        role: "",
         passwordhideshow1: true,
         passwordhideshow2: true,
     });
     const [errors, setErrors] = useState({});
+
     const emailRegx = /^\s*\w+([\s\.-]?\w+)*@\w+([\s\.-]?\w+)*(\.\w{2,3})+\s*$/;
 
     const isValid = () => {
@@ -32,11 +40,23 @@ const Registration = ({ navigation }) => {
             errors.lastName = "Last name is required *";
             isValid = false;
         }
-        if (!registrationCredentials.phonenumber.trim()) {
-            errors.phonenumber = "Email is required *";
+        if (!registrationCredentials.email.trim()) {
+            errors.email = "Email is required *";
             isValid = false;
-        } else if (!emailRegx.test(registrationCredentials.phonenumber.trim())) {
-            errors.phonenumber = "Invalid email *";
+        } else if (!emailRegx.test(registrationCredentials.email.trim())) {
+            errors.email = "Invalid email *";
+            isValid = false;
+        }
+        if (!registrationCredentials.role.trim()) {
+            errors.role = "Role is required *";
+            isValid = false;
+        }
+        if (!registrationCredentials.phonenumber.trim()) {
+            errors.phonenumber = "Phone number is required *";
+            isValid = false;
+        }
+        if (!registrationCredentials.username.trim()) {
+            errors.username = "Username is required *";
             isValid = false;
         }
         if (!registrationCredentials.password.trim()) {
@@ -53,7 +73,6 @@ const Registration = ({ navigation }) => {
             errors.cpassword = "Passwords do not match *";
             isValid = false;
         }
-
         setErrors(errors);
         return isValid;
     };
@@ -70,58 +89,50 @@ const Registration = ({ navigation }) => {
     };
 
     const onSubmit = () => {
-        // if (isValid()) {
+        if (isValid()) {
             navigation.navigate("Login");
-        // } else {
-        //     // Alert.alert("Validation Error", "Please correct the highlighted errors.");
-        // }
+            // navigation.pop()
+        } else {
+            // Alert.alert("Validation Error", "Please correct the highlighted errors.");
+        }
     };
 
+    const rolesData = [
+        { title: 'Admin' },
+        { title: 'Supervisor 1' },
+        { title: 'Supervisor 2' },
+    ];
 
     return (
         <KeyboardAvoidingView
-            style={{
-                flex: 1,
-                backgroundColor: colors.white
-            }}
+            style={{ flex: 1, backgroundColor: colors.white }}
             behavior={Platform.OS === 'ios' ? 'padding' : null}
             keyboardVerticalOffset={Platform.OS === 'ios' ? 2 : 0}
         >
-            <Image
-                style={{width:'100%'}}
-                source={require('../assets/images/bluebg.jpg')}
-            />
-            <ScrollView contentContainerStyle={{ flexGrow: 1 }}
-                style={{ marginTop: -50 }}
-            >
-
+            <MainHeader navigation={navigation} tab={activeTab} />
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={styles.container}>
                     <View style={styles.headerContainer}>
-                        <Text style={styles.header}>Registration</Text>
+                        <Text style={styles.header}>New User</Text>
                     </View>
 
-                    <View style={{ flexDirection: 'row', width: '95%', alignSelf: 'center' }}>
-                        <View style={{ width: '50%' }}>
-                            <Textinput
-                                label={"First Name"}
-                                placeholder={"John"}
-                                onChangeText={(e) => handleOnChange("firstName", e)}
-                                value={registrationCredentials.firstName}
-                                error={!!errors.firstName}
-                            />
-                            {errors.firstName && <Text style={styles.errText}>{errors.firstName}</Text>}
-                        </View>
-                        <View style={{ width: '50%' }}>
-                            <Textinput
-                                label={"Last Name"}
-                                placeholder={"Doe"}
-                                onChangeText={(e) => handleOnChange("lastName", e)}
-                                value={registrationCredentials.lastName}
-                                error={!!errors.lastName}
-                            />
-                            {errors.lastName && <Text style={styles.errText}>{errors.lastName}</Text>}
-                        </View>
-                    </View>
+                    <Textinput
+                        label={"First Name"}
+                        placeholder={"John"}
+                        onChangeText={(e) => handleOnChange("firstName", e)}
+                        value={registrationCredentials.firstName}
+                        error={!!errors.firstName}
+                    />
+                    {errors.firstName && <Text style={styles.errText}>{errors.firstName}</Text>}
+
+                    <Textinput
+                        label={"Email Address"}
+                        placeholder={"abc@gmail.com"}
+                        onChangeText={(e) => handleOnChange("email", e)}
+                        value={registrationCredentials.email}
+                        error={!!errors.email}
+                    />
+                    {errors.email && <Text style={styles.errText}>{errors.email}</Text>}
 
                     <Textinput
                         label={"Phone Number"}
@@ -131,6 +142,25 @@ const Registration = ({ navigation }) => {
                         error={!!errors.phonenumber}
                     />
                     {errors.phonenumber && <Text style={styles.errText}>{errors.phonenumber}</Text>}
+
+                    <DropDown
+                        label={"Role"}
+                        data={rolesData}
+                        defaultText="Roles"
+                        setItem={(selectedRole) => handleOnChange("role", selectedRole.title)}
+                        labelstyle={styles.label}
+                        btnStyle={styles.dropdownButtonStyle}
+                    />
+                    {errors.role && <Text style={styles.errText}>{errors.role}</Text>}
+
+                    <Textinput
+                        label={"Username"}
+                        placeholder={"username"}
+                        onChangeText={(e) => handleOnChange("username", e)}
+                        value={registrationCredentials.username}
+                        error={!!errors.username}
+                    />
+                    {errors.username && <Text style={styles.errText}>{errors.username}</Text>}
 
                     <PasswordInput
                         label={"Password"}
@@ -156,15 +186,22 @@ const Registration = ({ navigation }) => {
 
                     <View style={{ height: 80 }}></View>
                 </View>
-                <View>
-                    <PrimaryButton
-                        title={"Create Account"}
-                        onPress={onSubmit}
-                    />
-                    <View style={styles.forgotpasswordContainer}>
-                        <Text style={styles.noteText}>
-                            Already have an account? <Text style={styles.termsText}>Login</Text>
-                        </Text>
+                <View style={{ flexDirection: 'row', width: '95%', alignSelf: 'center', marginBottom: 30 }}>
+                    <View>
+                        <PrimaryButton
+                            title={"Cancel"}
+                            onPress={() => {
+                                navigation.pop()
+                            }}
+                            btnStyle={styles.primarycontainer}
+                            textStyle={styles.primarytxt}
+                        />
+                    </View>
+                    <View>
+                        <PrimaryButton
+                            title={"Save"}
+                            onPress={onSubmit}
+                        />
                     </View>
                 </View>
             </ScrollView>
@@ -172,4 +209,4 @@ const Registration = ({ navigation }) => {
     );
 };
 
-export default Registration;
+export default AddUser;

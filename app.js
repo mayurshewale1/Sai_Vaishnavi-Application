@@ -3,6 +3,7 @@ import { Dimensions, SafeAreaView, View, useColorScheme } from 'react-native';
 import MainHeader from './src/component/drawer/mainheader';
 import { NavigationContainer } from '@react-navigation/native';
 import MainStackNavigator from './navigator/constructionnav';
+import { TabProvider } from './src/component/context/tabcontext';
 
 const App = () => {
   // const isDarkMode = useColorScheme() === 'dark';
@@ -35,9 +36,11 @@ const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
-        <NavigationContainer>
-          <MainStackNavigator />
-        </NavigationContainer>
+        <TabProvider>
+          <NavigationContainer>
+            <MainStackNavigator />
+          </NavigationContainer>
+        </TabProvider>
         {/* <MainHeader setTab={setTab} /> */}
       </View>
     </SafeAreaView>
