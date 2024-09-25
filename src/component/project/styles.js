@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     HeadingContainerText: {
         fontSize: 18,
         fontWeight: '700',
-        color: colors.black
+        color: colors
     },
     cardContainer: {
         width: '95%',
@@ -50,28 +50,28 @@ const styles = StyleSheet.create({
     supervisorText: {
         fontSize: 14,
         fontWeight: '600',
-        color: colors.black
+        color: colors
     },
     priorityText: {
         backgroundColor: colors.red,
         padding: 5,
         fontSize: 12,
         borderRadius: 10,
-        color: colors.black
+        color: colors
     },
     LowpriorityText: {
         backgroundColor: colors.lowpriority,
         padding: 5,
         fontSize: 12,
         borderRadius: 10,
-        color: colors.black
+        color: colors
     },
     MediumpriorityText: {
         backgroundColor: colors.red,
         padding: 5,
         fontSize: 12,
         borderRadius: 10,
-        color: colors.black
+        color: colors
     },
     activeText: {
         backgroundColor: colors.active,
@@ -166,14 +166,14 @@ const styles = StyleSheet.create({
         paddingBottom: 0,
         fontFamily: 'Poppins-Regular',
         backgroundColor: colors.inputBg,
-        color: colors.darkBlueTextColor,
+        color: colors.black,
         borderColor: colors.borderStroke,
     },
     modalSubHeading: {
         marginTop:10,
         fontSize: 14,
         padding:5,
-        color: colors.black,
+        color: colors,
         fontWeight: '600'
     },
     taskType: {
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
         color: 'red',
         marginTop: 5,
         padding: 5,
-        width: '100%',
+        width: '90%',
         alignSelf: 'center'
     },
 
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     },
     mapFlexContainterText2: {
         fontSize: 12,
-        color: colors.black,
+        color: colors,
         margin: 5,
         textAlign: 'center',
         width: '60%'

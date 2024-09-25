@@ -18,7 +18,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingBottom: 10,
-        paddingTop: 10
+        paddingTop: 10,
+        color: colors.black
         // backgroundColor: colors.grayBg,
     },
     tableHeaderText: {
@@ -161,4 +162,23 @@ export const styles = StyleSheet.create({
         fontFamily: 'Poppins-Regular',
     },
 
+    ProfileImgContainer: {
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 100,
+        height: 100,
+        borderRadius: 100 / 2,
+    },
+    editContainer: {
+        backgroundColor: '#1814F3',
+        width: 30,
+        height: 30,
+        borderRadius: 30 / 2,
+        position: 'absolute',
+        alignItems:'center',
+        justifyContent:'center',
+        left: 70,
+        top: 60
+    }
 });

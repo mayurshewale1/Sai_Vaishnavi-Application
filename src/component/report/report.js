@@ -67,7 +67,7 @@ const Reportlist = ({ navigation }) => {
                 <TouchableOpacity style={styles.copyIcon}>
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        color={colors.black}
+                        color={colors}
                         size={20}
                     />
                 </TouchableOpacity>
@@ -79,7 +79,7 @@ const Reportlist = ({ navigation }) => {
         <View style={styles.mainContainer}>
             <View style={{ flexDirection: 'row', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
                 <View style={{ width: '20%', alignItems: 'center', justifyContent: 'center', marginTop: 35 }}>
-                    <Text style={{ fontSize: 14, fontWeight: '700', color: colors.black }}>Reports</Text>
+                    <Text style={{ fontSize: 14, fontWeight: '700', color: colors }}>Reports</Text>
                 </View>
                 <View style={{ width: '80%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly' }}>
                     <View style={{ width: '33%' }}>

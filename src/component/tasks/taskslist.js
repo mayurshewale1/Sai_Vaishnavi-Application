@@ -7,7 +7,7 @@ const TasksList = ({ route, navigation }) => {
 
     return (
         <View>
-            <Text style={{ color: colors.black }}>TasksList</Text>
+            <Text style={{ color: colors }}>TasksList</Text>
         </View>
     )
 }

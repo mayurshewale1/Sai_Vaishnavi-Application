@@ -17,7 +17,7 @@ const Textinput = ({ label, placeholder, keyboardType, onChangeText, value, erro
                 onChangeText={onChangeText}
                 style={[
                     style ? style : error ? styles.inputerr : styles.input,
-                    multiline && { height: numberOfLines * 20, textAlignVertical: 'top', paddingTop: 10, color: colors.black }
+                    multiline && { height: numberOfLines * 20, textAlignVertical: 'top', paddingTop: 10, color: colors }
                 ]}
                 value={value}
                 multiline={multiline ? true : false}

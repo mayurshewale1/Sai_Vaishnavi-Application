@@ -17,7 +17,7 @@ const MainHeader = ({ navigation, tab }) => {
     setShow(false); // Close the modal
     setActiveTab(tabId); // Set the active tab using the context
   };
-  
+
   return (
     <View>
       {/* Drawer Modal */}
@@ -49,12 +49,18 @@ const MainHeader = ({ navigation, tab }) => {
         {/* Other Icons */}
         <View style={styles.headerContainer2}>
           <TouchableOpacity>
-            <Ionicons name="search" size={20} color={colors.white}/>
+            <Ionicons name="search" size={20} color={colors.white} />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Ionicons name="notifications-outline" size={20} color={colors.white}/>
+            <Ionicons name="notifications-outline" size={20} color={colors.white} />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Profile", {
+                screen: 'Profilescreen'
+              })
+            }}
+          >
             <Image source={require('../assets/images/profile.png')} />
           </TouchableOpacity>
         </View>

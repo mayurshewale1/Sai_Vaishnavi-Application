@@ -9,6 +9,9 @@ import Home from '../src/component/home/home';
 import CreateProject from '../src/component/project/createproject';
 import Createnewtasks from '../src/component/project/createproject';
 import AddUser from '../src/component/user/adduser';
+import Newpayment from '../src/component/payment/newpayment';
+import Resourcemgmt from '../src/component/resourcemgmt/resourcemgmt';
+import Profile from '../src/component/profile/profile';
 
 enableScreens();
 
@@ -43,6 +46,33 @@ const MyUserstack = () => {
   );
 };
 
+const PaymentList = createStackNavigator();
+const MyPaymentList = () => {
+  return (
+    <PaymentList.Navigator screenOptions={{ headerShown: false }}>
+      <PaymentList.Screen name="Newpayment" component={Newpayment} />
+    </PaymentList.Navigator>
+  );
+};
+
+const Resourcemgmtt = createStackNavigator();
+const MyResourcemgmt = () => {
+  return (
+    <Resourcemgmtt.Navigator screenOptions={{ headerShown: false }}>
+      <Resourcemgmtt.Screen name="Resourcemgmt" component={Resourcemgmt} />
+    </Resourcemgmtt.Navigator>
+  );
+};
+
+const Profiles = createStackNavigator();
+const MyProfile = () => {
+  return (
+    <Profiles.Navigator screenOptions={{ headerShown: false }}>
+      <Profiles.Screen name="Profilescreen" component={Profile} />
+    </Profiles.Navigator>
+  );
+};
+
 const MainStack = createStackNavigator();
 const MainStackNavigator = () => {
   return (
@@ -55,6 +85,9 @@ const MainStackNavigator = () => {
       <MainStack.Screen name="Auth" component={MyAuthStack} />
       <MainStack.Screen name="Project" component={MyProjectStack} />
       <MainStack.Screen name="User" component={MyUserstack} />
+      <MainStack.Screen name="Payment" component={MyPaymentList} />
+      <MainStack.Screen name="Resource" component={MyResourcemgmt} />
+      <MainStack.Screen name="Profile" component={MyProfile} />
     </MainStack.Navigator>
   );
 };

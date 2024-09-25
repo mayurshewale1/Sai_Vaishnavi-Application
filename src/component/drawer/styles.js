@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   activeMenuItemTextStyle: {
-    color: colors.black,
+    color: colors,
     fontSize: 16,
     left:15,
   },

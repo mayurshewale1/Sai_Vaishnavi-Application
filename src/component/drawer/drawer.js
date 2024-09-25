@@ -238,7 +238,11 @@ const Drawer = (props) => {
 
                 <TouchableOpacity
                     style={props.activeTab === 8 ? styles.activeMenuItemStyle : styles.menuItemStyle}
-                    onPress={() => handleTabClick(8, 'Logout')}
+                    onPress={() => {
+                        props.navigation?.navigate("Auth", {
+                            screen: "Login"
+                        })
+                    }}
                 >
                     {
                         props.activeTab === 8 ?

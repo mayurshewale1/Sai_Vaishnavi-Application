@@ -99,7 +99,7 @@ const UserList = ({ navigation }) => {
                 <TouchableOpacity style={styles.copyIcon}>
                     <MaterialCommunityIcons
                         name="dots-vertical"
-                        color={colors.black}
+                        color={colors}
                         size={20}
                     />
                 </TouchableOpacity>
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     filterTitle: {
         fontSize: 14,
         fontWeight: '700',
-        color: colors.black,
+        color: colors,
     },
     dropdownContainer: {
         flexDirection: 'row',

@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         // backgroundColor: '#e0e0e0',
     },
     toggleText: {
-        color: colors.black,
+        color: colors,
         // fontWeight: 'bold',
     },
     calendar: {

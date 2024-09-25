@@ -204,7 +204,7 @@ const Createnewtasks = ({ navigation, route }) => {
                         }} style={{ margin: 5 }}>
                           <Entypo
                             name="cross"
-                            color={colors.black}
+                            color={colors}
                             size={20}
                           />
                         </TouchableOpacity>

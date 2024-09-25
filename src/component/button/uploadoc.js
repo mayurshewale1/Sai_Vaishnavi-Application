@@ -105,7 +105,7 @@ const Documentpicker = ({ setDocumentUrl }) => {
                     <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
                         <Entypo
                             name="circle-with-cross"
-                            color={colors.black}
+                            color={colors}
                             size={20}
                         />
                     </TouchableOpacity>
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 12,
         fontWeight: '600',
-        color: colors.black,
+        color: colors,
         marginBottom: 10,
         width: '100%'
     },
