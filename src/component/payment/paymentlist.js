@@ -132,7 +132,7 @@ const PaymentList = ({ navigation }) => {
                 <Text style={styles.filterTitle}>Payments</Text>
              
                 <View style={styles.dropdownContainer}>
-                    <View style={styles.dropdownSubContainer}>
+                    <TouchableOpacity style={styles.dropdownSubContainer}>
                         <Downloadsvg
                             width={'20'}
                             height={'20'}
@@ -141,8 +141,8 @@ const PaymentList = ({ navigation }) => {
                             xmlns="http://www.w3.org/2000/svg"
                         />
                         <Text style={styles.dropdownSubContainerText}>Export</Text>
-                    </View>
-                    <View style={styles.dropdownSubContainer}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.dropdownSubContainer}>
                         <Printsvg
                             width={'20'}
                             height={'20'}
@@ -151,7 +151,7 @@ const PaymentList = ({ navigation }) => {
                             xmlns="http://www.w3.org/2000/svg"
                         />
                         <Text style={styles.dropdownSubContainerText}>Print</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 

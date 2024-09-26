@@ -12,6 +12,7 @@ import AddUser from '../src/component/user/adduser';
 import Newpayment from '../src/component/payment/newpayment';
 import Resourcemgmt from '../src/component/resourcemgmt/resourcemgmt';
 import Profile from '../src/component/profile/profile';
+import StructureDetails from '../src/component/tasks/structuredetails';
 
 enableScreens();
 
@@ -34,6 +35,15 @@ const MyProjectStack = () => {
       <ProjectStack.Screen name="Projectlist" component={Projectlist} />
       <ProjectStack.Screen name="Createnewtasks" component={Createnewtasks} />
     </ProjectStack.Navigator>
+  );
+};
+
+const TaskStack = createStackNavigator();
+const MyTaskStack = () => {
+  return (
+    <TaskStack.Navigator screenOptions={{ headerShown: false }}>
+      <TaskStack.Screen name="Taskdetails" component={StructureDetails} />
+    </TaskStack.Navigator>
   );
 };
 
@@ -84,6 +94,7 @@ const MainStackNavigator = () => {
     >
       <MainStack.Screen name="Auth" component={MyAuthStack} />
       <MainStack.Screen name="Project" component={MyProjectStack} />
+      <MainStack.Screen name="Tasks" component={MyTaskStack} />
       <MainStack.Screen name="User" component={MyUserstack} />
       <MainStack.Screen name="Payment" component={MyPaymentList} />
       <MainStack.Screen name="Resource" component={MyResourcemgmt} />

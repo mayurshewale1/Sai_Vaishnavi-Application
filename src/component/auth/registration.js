@@ -18,7 +18,6 @@ const Registration = ({ navigation }) => {
         passwordhideshow2: true,
     });
     const [errors, setErrors] = useState({});
-    const emailRegx = /^\s*\w+([\s\.-]?\w+)*@\w+([\s\.-]?\w+)*(\.\w{2,3})+\s*$/;
 
     const isValid = () => {
         let errors = {};
@@ -33,12 +32,9 @@ const Registration = ({ navigation }) => {
             isValid = false;
         }
         if (!registrationCredentials.phonenumber.trim()) {
-            errors.phonenumber = "Email is required *";
+            errors.phonenumber = "Phone number is required *";
             isValid = false;
-        } else if (!emailRegx.test(registrationCredentials.phonenumber.trim())) {
-            errors.phonenumber = "Invalid email *";
-            isValid = false;
-        }
+        } 
         if (!registrationCredentials.password.trim()) {
             errors.password = "Password is required *";
             isValid = false;
@@ -70,12 +66,13 @@ const Registration = ({ navigation }) => {
     };
 
     const onSubmit = () => {
-        // if (isValid()) {
+        if (isValid()) {
             navigation.navigate("Login");
-        // } else {
-        //     // Alert.alert("Validation Error", "Please correct the highlighted errors.");
-        // }
+        } else {
+            // Alert.alert("Validation Error", "Please correct the highlighted errors.");
+        }
     };
+
 
 
     return (
@@ -129,6 +126,8 @@ const Registration = ({ navigation }) => {
                         onChangeText={(e) => handleOnChange("phonenumber", e)}
                         value={registrationCredentials.phonenumber}
                         error={!!errors.phonenumber}
+                        keyboardType={"number-pad"}
+                        max={10}
                     />
                     {errors.phonenumber && <Text style={styles.errText}>{errors.phonenumber}</Text>}
 

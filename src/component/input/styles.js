@@ -467,7 +467,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     backgroundColor: colors.primary,
-    color: colors,
+    color: colors.black,
     paddingTop: 0,
     paddingBottom: 0,
     // borderBottomWidth:0.4,
@@ -535,11 +535,11 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 12,
     fontWeight: '500',
-    color: colors,
+    color: colors.black,
   },
   dropdownButtonArrowStyle: {
     fontSize: 18,
-    color: colors
+    color: colors.black
   },
   dropdownButtonIconStyle: {
     fontSize: 28,

@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     filterTitle: {
         fontSize: 14,
         fontWeight: '700',
-        color: colors,
+        color: colors.black,
     },
     dropdownContainer: {
         flexDirection: 'row',
